@@ -1,12 +1,16 @@
 # As a programmer you try to anticipate any crash that is about to happen with your code 
 # and tackle it using try and exception
-try:
-    age = int(input("What is your age? "))
-    lucky_salary = 3000
-    total = lucky_salary / age
-    print(f"Congratulations you salary is {total}$")
+# try:
+#     age = int(input("What is your age? "))
+#     lucky_salary = 3000
+#     total = lucky_salary / age
+#     print(f"Congratulations you salary is {total}$")
 
-except ZeroDivisionError:
-    print("Age can't be zero")
-except ValueError:
-    print("Invalid input")
+# except ZeroDivisionError:
+#     print("Age can't be zero")
+# except ValueError:
+#     print("Invalid input")
+
+import converters
+marks = [22, 34, 15, 67, 31, 87, 78, 90, 92, 45]
+print(converters.find_max(marks))
