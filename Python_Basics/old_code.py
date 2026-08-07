@@ -95,14 +95,19 @@
 #     output = output + digit_translator.get(cha, '!') + " "
 # print(output)
 customer = {}
+print("************************************")
 print("Hi!! welcome to our online shopping.")
-
+print("************************************")
 customer['name'] = input("Enter customer name: ")
 customer['age'] = input("Enter your age: ")
 customer['phone number'] = input("Enter phone number: ")
 customer['order'] = input("Enter phone model ordered: " )
+customer['storage'] = input("Enter phone model storage: " )
 customer['payment_method'] = input("Payment method: ")
 
-print('Customers details')
+print("\n*********************")
+print('   Customers details')
+print("*********************\n")
 for key, value in customer.items():
-    print(f'{key} : {value}')
+    capital = f'{key} : {value}'.title()
+    print(capital)
