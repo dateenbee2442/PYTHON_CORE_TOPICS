@@ -70,7 +70,9 @@ fruits_with_colors = [
     {'name': 'Passionfruit', 'color': 'Purple'},
     {'name': 'Lychee', 'color': 'Pink'}
 ]
+change = list(fruits_with_colors)
 
 
-new_dict = set(fruits_with_colors)
-print(new_dict)
+new_fruit = [fruit for fruit in change if 'L' in fruit['name']]
+print(new_fruit)
+# Output: [{'name': 'Apple', 'color': 'Red'}]
