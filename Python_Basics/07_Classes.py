@@ -42,12 +42,10 @@ calc_shipping()
 #         print(f'{self.name} walking....')
 
 
-
 # class Dog(Mammal):
 #     def __init__(self, name):
 #         super().__init__(name)
 #         self.name = name
-
 #     def bark(self):
 #         print(f'{self.name} is barking, Whooo Whooo')
 

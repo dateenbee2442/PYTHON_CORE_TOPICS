@@ -94,20 +94,52 @@
 # for cha in phone:
 #     output = output + digit_translator.get(cha, '!') + " "
 # print(output)
-customer = {}
-print("************************************")
-print("Hi!! welcome to our online shopping.")
-print("************************************")
-customer['name'] = input("Enter customer name: ")
-customer['age'] = input("Enter your age: ")
-customer['phone number'] = input("Enter phone number: ")
-customer['order'] = input("Enter phone model ordered: " )
-customer['storage'] = input("Enter phone model storage: " )
-customer['payment_method'] = input("Payment method: ")
+# customer = {}
+# print("************************************")
+# print("Hi!! welcome to our online shopping.")
+# print("************************************")
+# customer['name'] = input("Enter customer name: ")
+# customer['age'] = input("Enter your age: ")
+# customer['phone number'] = input("Enter phone number: ")
+# customer['order'] = input("Enter phone model ordered: " )
+# customer['storage'] = input("Enter phone model storage: " )
+# customer['payment_method'] = input("Payment method: ")
 
-print("\n*********************")
-print('   Customers details')
-print("*********************\n")
-for key, value in customer.items():
-    capital = f'{key} : {value}'.title()
-    print(capital)
+# print("\n*********************")
+# print('   Customers details')
+# print("*********************\n")
+# for key, value in customer.items():
+#     capital = f'{key} : {value}'.title()
+#     print(capital)
+
+
+
+import openpyxl as xl
+from openpyxl.chart import BarChart, Reference
+
+def apply_discount_and_create_chart(filename):
+    # 1. Load the file
+    wb = xl.load_workbook(filename)
+    sheet = wb['Sheet1']
+
+    # 2. Apply 10% discount and put in Column D
+    for row in range(2, sheet.max_row + 1):
+        cell = sheet.cell(row, 3)
+        corrected_price = cell.value * 0.9
+        corrected_price_cell = sheet.cell(row, 4)
+        corrected_price_cell.value = corrected_price  
+
+    # 3. Set up chart data from Column D  
+    values = Reference(sheet, 
+                    min_row=2, 
+                    max_row=sheet.max_row,
+                    min_col=4, 
+                    max_col=4)
+
+    # 4. Create and add chart
+    chart = BarChart()
+    chart.add_data(values)
+    sheet.add_chart(chart, 'e2')
+
+    # 5. Save new file
+    wb.save(filename)

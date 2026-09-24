@@ -16,7 +16,7 @@ def apply_discount_and_create_chart(filename):
     # 3. Set up chart data from Column D  
     values = Reference(sheet, 
                     min_row=2, 
-                    max_row=sheet.max_row, 
+                    max_row=sheet.max_row,
                     min_col=4, 
                     max_col=4)
 
@@ -27,3 +27,7 @@ def apply_discount_and_create_chart(filename):
 
     # 5. Save new file
     wb.save(filename)
+
+
+
+
